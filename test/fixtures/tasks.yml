@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  decription: MyString
+  due_date: MyString
+  due_time: MyString
+
+two:
+  name: MyString
+  decription: MyString
+  due_date: MyString
+  due_time: MyString

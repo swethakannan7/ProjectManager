@@ -1,0 +1,25 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @project %>
+
+<div>
+  <br></br> New Task
+  <%= link_to 'New Task', new_project_task_path(@project) %>
+  <br></br>
+  <h2>Tasks</h2>
+    <% if @tasks.any? %>
+      <ul>
+        <% @tasks.each do |task| %>
+          <li><%= task.name %></li>
+          <li><%= task.decription %> </li>
+          <li><%= task.due_date %> </li>
+        <% end %>
+      </ul>
+    <% else %>
+      <p>No tasks for this project.</p>
+    <% end %>
+  <%= link_to "Edit this project", edit_project_path(@project) %> |
+  <%= link_to "Back to projects", projects_path %>
+
+  <%= button_to "Destroy this project", @project, method: :delete %>
+</div>
