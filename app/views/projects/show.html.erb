@@ -6,18 +6,19 @@
   <br></br> New Task
   <%= link_to 'New Task', new_project_task_path(@project) %>
   <br></br>
-  <h2>Tasks</h2>
-    <% if @tasks.any? %>
-      <ul>
-        <% @tasks.each do |task| %>
-          <li><%= task.name %></li>
-          <li><%= task.decription %> </li>
-          <li><%= task.due_date %> </li>
+      <% if @project.tasks.any? %>
+        <h2>Tasks:</h2>
+        <% @project.tasks.each do |task| %>
+          <div>
+            <%= render partial: 'tasks/task', locals: {task: task} %>
+            <%= link_to "View Task", project_task_path(@project, task) %>
+            <!-- Add other task details you want to display -->
+          </div>
+          <hr>
         <% end %>
-      </ul>
-    <% else %>
-      <p>No tasks for this project.</p>
-    <% end %>
+      <% else %>
+        <p>No tasks for this project.</p>
+      <% end %>
   <%= link_to "Edit this project", edit_project_path(@project) %> |
   <%= link_to "Back to projects", projects_path %>
 
